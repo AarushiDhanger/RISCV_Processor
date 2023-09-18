@@ -61,10 +61,6 @@ dmem_wen
 Output
 0:0
 Write enable for data memory (1 for Store, 0 for Load)
-             Your cpu must “synthesize”. For implementation, we are using too many ports. We will later decide if we wish to put memories and cpu inside a top level design (+ disable synthesis for memories) to reduce ports (For now, you should have only your cpu in the design and all else in the testbench and set the cpu as design_top and synthesize your cpu only.)
-Deliverables -
-Demo - 50 marks
-- (30 if pipeline works but hazards are not handled, 20 for data hazard handling)
-Code submission - 50 marks
-- (30 if pipeline works but hazards are not handled, 20 for data hazard handling)
+             Your CPU must “synthesize”. For implementation, we are using too many ports. We will later decide if we wish to put memories and cpu inside a top-level design (+ disable synthesis for memories) to reduce ports (For now, you should have only your CPU in the design and all else in the testbench and set the cpu as design_top and synthesize your cpu only.)
+
   
