@@ -14,6 +14,7 @@ Later when we add Load/ Store instructions, we will print the memory address bei
 This must be done in 3 weeks. You are free to divide your time as you like, but by the end of week 3, we aim to have addi working with data hazards handled (stall on a hazard till value is available and then resume).
 Initially, we will implement the pipeline w/o caring for the hazards and test it with the addi_nohazard.dat.
 Then, we will update the pipeline to handle the hazards and test it with addi_hazards.dat
+      
       <img width="739" alt="Screen Shot 2023-09-18 at 12 28 55 PM" src="https://github.com/AarushiDhanger/RISCV_Processor/assets/23131199/cf01bbd5-3488-44f8-a604-d2bb79e1fd4b">
 
      Testbench, instruction memory and data memory files will be given to you. Asm files will also be given that you may use with rars to follow the code sequence and help in debug.
