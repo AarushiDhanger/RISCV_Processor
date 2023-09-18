@@ -1,5 +1,6 @@
 # RISCV_Processor
 
+
 Implement a pipelined RISCV processor.
 We will start by implementing the datapath for only one instruction - addi.
 5 stages, every stage takes 1 CC. This will allow us to handle the most basic hazards. No forwarding.
