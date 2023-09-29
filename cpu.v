@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 09/25/2023 12:22:07 PM
+// Create Date: 09/28/2023 11:16:02 PM
 // Design Name: 
 // Module Name: cpu
 // Project Name: 
@@ -23,7 +23,7 @@
 module cpu(
     input rst_n,
     input clk,
-    output [31:0] imem_addr,
+    output reg [31:0] imem_addr,  //i added reg because i faced error in line 49 procedural assignment to a non register 
     input [31:0] imem_insn,
     output [31:0] dmem_addr,
     inout [31:0] dmem_data,
@@ -39,9 +39,14 @@ module cpu(
     //fetch
     always@(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+           PC <= 16'b0;
+           fetch_reg <= 16'b0;
            counter <= 16'b0;
+           
            end
         else begin
+           imem_addr <= PC;
+           PC <= PC + 1;
            counter <= counter + 1;
            end
     end
@@ -49,9 +54,13 @@ module cpu(
     //decode
     always@(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+           PC <= 16'b0;
+           decode_reg <= 16'b0;
            counter <= 16'b0;
            end
         else begin
+           imem_addr <= PC;
+           PC <= PC + 1;
            counter <= counter + 1;
            end
     end
@@ -59,18 +68,26 @@ module cpu(
     //execute
     always@(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+           PC <= 16'b0;
+           execute_reg <= 16'b0;
            counter <= 16'b0;
            end
         else begin
+           imem_addr <= PC;
+           PC <= PC + 1;
            counter <= counter + 1;
            end
     end
     // memory access
     always@(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+           PC <= 16'b0;
+           memAccess_reg <= 16'b0;
            counter <= 16'b0;
            end
         else begin
+           imem_addr <= PC;
+           PC <= PC + 1;
            counter <= counter + 1;
            end
     end
@@ -78,14 +95,14 @@ module cpu(
     //Write Back
     always@(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+        PC <= 16'b0;
+           writeBack_reg <= 16'b0;
            counter <= 16'b0;
            end
         else begin
+           imem_addr <= PC;
+           PC <= PC + 1;
            counter <= counter + 1;
            end
     end
     
-    
-        
-    
-endmodule
